@@ -30,6 +30,7 @@ list_of_files = [
     "requirements.txt",
     "Dockerfile",
     "docker-compose.yml",
+    "setup.py",
 ]
 
 

@@ -6,5 +6,6 @@ seaborn
 keras
 tensorflow
 jupyterlab
+opencv-python
 
 -e .

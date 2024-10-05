@@ -7,7 +7,8 @@ import logging
 
 
 list_of_files = [
-
+    
+    "src/components/data_download.py",
     "src/components/data_ingestion.py",
     "src/components/data_preprocessing.py",
     "src/components/model_trainer.py",
@@ -23,6 +24,7 @@ list_of_files = [
     "src/logger/__init__.py",
     "src/exception/__init__.py",
     "src/services/__init__.py",
+    "src/services/aws_model_upload.py",
     "research/reaseach_notebook.ipynb",
     "data/",
     "app.py",

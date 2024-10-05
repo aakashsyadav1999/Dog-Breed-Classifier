@@ -7,5 +7,7 @@ keras
 tensorflow
 jupyterlab
 opencv-python
+boto3
+python-dotenv
 
 -e .

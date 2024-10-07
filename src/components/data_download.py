@@ -9,6 +9,7 @@ from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 
 class AWS_DOWNLAOD:
+
     def __init__(self,aws_download_config:AWS_DOWNLOAD_CRED):
 
         self.s3 = boto3.resource('s3',
@@ -34,10 +35,10 @@ class AWS_DOWNLAOD:
         print(f'{file_name} is downloaded to {download_path}')
 
 
-if __name__ == '__main__':
-    aws_download_config = AWS_DOWNLOAD_CRED()
-    aws_download = AWS_DOWNLAOD(aws_download_config)
-    aws_download.download_file(aws_download_config.BUCKET_NAME, 'dogImages.zip', aws_download_config.download_directory)
+# if __name__ == '__main__':
+#     aws_download_config = AWS_DOWNLOAD_CRED()
+#     aws_download = AWS_DOWNLAOD(aws_download_config)
+#     aws_download.download_file(aws_download_config.BUCKET_NAME, 'dogImages.zip', aws_download_config.download_directory)
     
 
     

@@ -26,12 +26,18 @@ class AWS_DOWNLAOD:
         # Define the download path
         download_directory = self.aws_download_config.download_directory
 
+        if not download_directory:
+            mkdir_cmd = f'mkdir -p {download_directory}'
+            os.system(mkdir_cmd)
+            logging.info(f'Created directory: {download_directory}')
+            
+
         # Check if the directory exists, and if not, create it
         if not os.path.exists(download_directory):
             os.makedirs(download_directory)
 
         # Download the file from S3 to the new directory
-        self.s3.Bucket(bucket_name).download_file('dogImages.zip', os.path.join(download_directory, 'dogImagesdata.zip'))
+        self.s3.Bucket(bucket_name).download_file(self.aws_download_config.ZIP_FILE_NAME, os.path.join(download_directory, self.aws_download_config.ZIP_FILE_NAME))
         print(f'{file_name} is downloaded to {download_path}')
 
 

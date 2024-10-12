@@ -11,8 +11,8 @@ import zipfile
 class DataIngestion:
 
     def __init__(self) -> None:
-        self.file_path = os.path.join(os.getcwd(), 'src')
-        print(f"Current working directory: {self.file_path}")
+        self.file_path = os.path.join(os.getcwd())
+        print(f": {self.file_path}")
 
     def read_zip_file(self) -> pd.DataFrame:
         """
@@ -22,10 +22,11 @@ class DataIngestion:
             logging.info("Reading the zip file")
             #Reading the zip file
             data_dir = os.path.join(self.file_path, 'data')
+            print(f"Data directory: {data_dir}")
             
             logging.info(f"Data directory: {data_dir}")
             # Correct zip file path construction (point directly to the zip file)
-            zip_file_path = os.path.join(data_dir,'dogImagesdata.zip')
+            zip_file_path = os.path.join(data_dir,'data.zip')
             
             logging.info(f"Zip file path: {zip_file_path}")
             logging.info(f"Checking if the zip file exists: {os.path.exists(zip_file_path)}")
@@ -51,10 +52,10 @@ class DataIngestion:
         image_count = 0
 
         # Correctly log the full path to the zip file
-        logging.info(f"Counting images in the zip file located at: {os.path.join(self.file_path, 'data', 'dogImagesdata.zip')}")
+        logging.info(f"Counting images in the zip file located at: {os.path.join(self.file_path, 'data', 'data.zip')}")
         try:
             # Correct zip file path construction (point directly to the zip file)
-            zip_file_path = os.path.join(self.file_path, 'data', 'dogImagesdata.zip')
+            zip_file_path = os.path.join(self.file_path, 'data', 'data.zip')
             
             # Print and log the actual zip file path
             print(f"Zip file path: {zip_file_path}")

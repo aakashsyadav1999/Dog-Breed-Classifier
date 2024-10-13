@@ -39,12 +39,3 @@ class AWS_DOWNLAOD:
         # Download the file from S3 to the new directory
         self.s3.Bucket(bucket_name).download_file(self.aws_download_config.ZIP_FILE_NAME, os.path.join(download_directory, self.aws_download_config.ZIP_FILE_NAME))
         print(f'{file_name} is downloaded to {download_path}')
-
-
-# if __name__ == '__main__':
-#     aws_download_config = AWS_DOWNLOAD_CRED()
-#     aws_download = AWS_DOWNLAOD(aws_download_config)
-#     aws_download.download_file(aws_download_config.BUCKET_NAME, 'dogImages.zip', aws_download_config.download_directory)
-    
-
-    

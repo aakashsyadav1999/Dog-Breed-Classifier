@@ -22,8 +22,8 @@ model = joblib.load(model_path)
 
 # Load your test data
 # Assuming you have a list of image paths and corresponding labels
-# image_paths, y_test = ...
-
+image_paths= os.path.join('data', 'test')
+y_test = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1]  # Example labels
 # Preprocess images
 X_test = np.vstack([preprocess_image(img_path, target_size=(224, 224)) for img_path in image_paths])
 

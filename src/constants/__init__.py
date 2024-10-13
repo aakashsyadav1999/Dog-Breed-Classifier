@@ -19,7 +19,11 @@ LABELS_CSV = 'labels.csv'
 #Data Transformation
 SIZE = (350,350)
 BATCH_SIZE = 32
-NUM_CLASSES = ""
 LEARNING_RATE = 0.001
 DROPOUT_RATE = 0.7
 EPOCHS = 5
+
+
+#Model Upload
+MODEL_DIR = "model"
+FINAL_FILE_NAME_MODEL = "final_model.keras"

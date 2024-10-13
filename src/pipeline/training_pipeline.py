@@ -8,7 +8,8 @@ from src.components.data_download import AWS_DOWNLAOD
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation
 
-from src.entiy.config import AWS_DOWNLOAD_CRED, DATA_TRANSFORMATION
+from src.entiy.config import AWS_DOWNLOAD_CRED, DATA_TRANSFORMATION, AWS_MODEL_UPLOAD_CONFIG
+from src.services.aws_model_upload import AWS_MODEL_UPLOAD
 
 
 
@@ -20,6 +21,8 @@ class TrainingPipeline:
         self.download_config = AWS_DOWNLOAD_CRED()
         self.data_ingestion = DataIngestion()
         self.data_transformation = DataTransformation(data_transformation=DATA_TRANSFORMATION(),aws_download_cred=AWS_DOWNLOAD_CRED())
+        self.aws_model_upload = AWS_MODEL_UPLOAD(aws_upload_config=AWS_MODEL_UPLOAD_CONFIG())
+        self.upload_config = AWS_MODEL_UPLOAD_CONFIG()
 
 
     def download_data(self):
@@ -45,6 +48,13 @@ class TrainingPipeline:
         except Exception as e:
             logging.error(f"Error while transforming the data: {e}")
             raise (f"Error while transforming the data: {e}")
+        
+    def upload_model(self):
+        try:
+            self.aws_model_upload.upload_model_file(self.upload_config.BUCKET_NAME)
+        except Exception as e:
+            logging.error(f"Error while uploading the model: {e}")
+            raise (f"Error while uploading the model: {e}")
 
 
 
@@ -52,7 +62,8 @@ class TrainingPipeline:
         try:
             #self.download_data()
             #self.ingest_data()
-            self.data_transformation_pipeline()
+            #self.data_transformation_pipeline()
+            self.upload_model()
         except Exception as e:
             logging.error(f"Error while running the pipeline: {e}")
             raise (f"Error while running the pipeline: {e}")

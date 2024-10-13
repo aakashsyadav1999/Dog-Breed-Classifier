@@ -9,4 +9,5 @@ jupyterlab
 opencv-python
 boto3
 python-dotenv
+mlflow
 -e .

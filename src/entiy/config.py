@@ -32,10 +32,25 @@ class DATA_TRANSFORMATION :
         # Batch Size
         self.BATCH_SIZE = BATCH_SIZE
         # Number of classes
-        self.NUM_CLASSES = NUM_CLASSES
+        #self.NUM_CLASSES = NUM_CLASSES
         # Learning Rate
         self.LEARNING_RATE = LEARNING_RATE
         # Dropout Rate
         self.DROPOUT_RATE = DROPOUT_RATE
         # Number of Epochs
         self.EPOCHS = EPOCHS
+
+@dataclass
+class AWS_MODEL_UPLOAD_CONFIG:
+
+    def __init__(self):
+        # AWS Credentials
+        self.AWS_KEY = os.getenv('AWS_KEY')
+        # AWS Secret Key
+        self.SECRET_KEY = os.getenv('SECRET_KEY')
+        #Directory Name for the model
+        self.MODEL_DIR = MODEL_DIR
+        # Final Model File Name
+        self.FINAL_FILE_NAME_MODEL = FINAL_FILE_NAME_MODEL
+        # Bucket Name
+        self.BUCKET_NAME = BUCKET_NAME

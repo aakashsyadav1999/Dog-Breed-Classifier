@@ -4,6 +4,9 @@ from src.constants import *
 from src.logger import logging
 from src.exception import CustomException
 from dataclasses import dataclass
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
 
 
 @dataclass

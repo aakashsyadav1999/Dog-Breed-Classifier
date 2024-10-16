@@ -60,9 +60,9 @@ class TrainingPipeline:
 
     def run_pipeline(self):
         try:
-            #self.download_data()
-            #self.ingest_data()
-            #self.data_transformation_pipeline()
+            self.download_data()
+            self.ingest_data()
+            self.data_transformation_pipeline()
             self.upload_model()
         except Exception as e:
             logging.error(f"Error while running the pipeline: {e}")

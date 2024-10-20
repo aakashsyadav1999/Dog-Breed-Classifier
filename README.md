@@ -1,7 +1,7 @@
 
 # DOG-BREED-CLASSIFIER
 
-This project is a **deep learning-based classifier** to predict the breed of a dog from an image. The complete pipeline involves **data handling, model training**, and **deployment via Flask API** for predictions. We leverage **AWS Cloud** for storage, **Airflow DAGs** for automation, **Docker** containers for orchestration, and **GitHub workflows** to trigger the system efficiently.
+This project is a **deep learning-based classifier** to predict the breed of a dog from an image. The complete pipeline involves **data handling, model training**, and **deployment via Flask API** for predictions. We leverage **AWS Cloud** for storage, **Prefect DAGs** for automation, **Docker** containers for orchestration, and **GitHub workflows** to trigger the system efficiently.
 
 ---
 
@@ -22,11 +22,11 @@ This project is a **deep learning-based classifier** to predict the breed of a d
 ```plaintext
 DOG-BREED-CLASSIFIER/
 │
-├── dags/                  # Airflow DAGs to automate processes
+├── dags/                  # Prefect DAGs to automate processes
 ├── data/                  # Directory for data (downloaded & extracted)
 ├── logs/                  # Logs generated during runs
 ├── model/                 # Saved models
-├── plugins/               # Additional Airflow plugins
+├── plugins/               # Additional Prefect plugins
 ├── research/              # Research notebooks or documentation
 ├── src/                   # Source code files
 ├── templates/             # HTML templates (for web interface)
@@ -64,14 +64,14 @@ DOG-BREED-CLASSIFIER/
    - We use **Flask API** to **load the saved model** and provide a prediction endpoint.  
    - Users can **upload images via the API** to get dog breed predictions.
 
-### 4. **Automation with Airflow DAGs and Docker Orchestration**
+### 4. **Automation with Prefect DAGs and Docker Orchestration**
    - **DAG:** The `automated_file.py` inside the `dags` folder triggers the entire pipeline, including:
      1. Downloading the dataset
      2. Training the CNN model
      3. Saving the model to AWS
    - **Docker Orchestration:** The DAG also triggers `docker-compose.yml`, which spins up a **Docker container** for running the pipeline.
    - **Linux Environment:** The container creates a **Linux environment** to perform all tasks in isolation.
-   - **Orchestration:** This process is managed using **Airflow** for seamless execution.
+   - **Orchestration:** This process is managed using **Prefect** for seamless execution.
 
 ### 5. **Triggering via GitHub Workflow**
    - **GitHub Workflows** are configured to **automatically trigger the DAGs** on certain events (like code pushes or PRs).
@@ -107,8 +107,8 @@ DOG-BREED-CLASSIFIER/
    docker-compose up --build
    ```
 
-6. **Access Airflow:**
-   - Once the containers are up, access Airflow on `http://localhost:8080` to monitor the DAGs.
+6. **Access Prefect:**
+   - Once the containers are up, access Prefect on `http://localhost:8080` to monitor the DAGs.
 
 ---
 
@@ -131,14 +131,14 @@ DOG-BREED-CLASSIFIER/
      curl -X POST -F "file=@dog.jpg" http://localhost:5000/predict
      ```
 
-3. **Monitor with Airflow:**
-   - Check Airflow UI to monitor DAGs and ensure the pipeline is functioning as expected.
+3. **Monitor with Prefect:**
+   - Check Prefect UI to monitor DAGs and ensure the pipeline is functioning as expected.
 
 ---
 
 ## Orchestration Process
 
-- **Airflow DAGs:** Handle the scheduling and triggering of tasks.
+- **Prefect DAGs:** Handle the scheduling and triggering of tasks.(https://www.prefect.io/)
 - **Docker Containers:** Ensure isolated execution and consistency across environments.
 - **GitHub Workflows:** Trigger DAGs whenever the repository is updated.
 
@@ -150,7 +150,7 @@ DOG-BREED-CLASSIFIER/
 - **Flask**: API framework for prediction  
 - **AWS Cloud**: For data storage and model saving  
 - **Docker**: For containerizing the application  
-- **Airflow**: For orchestration and automation  
+- **Prefect**: For orchestration and automation  
 - **GitHub Actions**: For CI/CD workflows  
 - **CNN**: Deep learning model for classification  
 

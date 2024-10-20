@@ -27,3 +27,8 @@ EPOCHS = 5
 #Model Upload
 MODEL_DIR = "model"
 FINAL_FILE_NAME_MODEL = "final_model.keras"
+
+
+#Gemini Environment Model
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL")

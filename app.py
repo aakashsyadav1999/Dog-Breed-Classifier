@@ -5,7 +5,7 @@ import numpy as np
 import os
 import pandas as pd
 from werkzeug.utils import secure_filename
-
+from src.components.gemini import Gemini
 app = Flask(__name__)
 
 # Constants
@@ -69,9 +69,19 @@ def predict():
         
         predicted_breed = dog_breeds[np.argmax(predictions)]
         
-        return jsonify({'breed': predicted_breed})
+        gemini = Gemini()
+        gemini.gemini_api()
+        gemini_response = gemini.send_to_gemini(predicted_breed)
+        
+        # Extract the text from the Gemini response
+        gemini_response_text = gemini_response.text if hasattr(gemini_response, 'text') else 'No response text available'
+        
+        return jsonify({'breed': predicted_breed, 'gemini_response': gemini_response_text})
     
     return jsonify({'error': 'Invalid file format. Only .jpg and .jpeg files are allowed.'}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)
+    app.run(host='localhost', port=5000)
+    
+#http://localhost:5000/predict-page

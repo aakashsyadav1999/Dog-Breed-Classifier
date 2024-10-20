@@ -7,8 +7,9 @@ from src.logger import logging
 from src.components.data_download import AWS_DOWNLAOD
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation
+from src.components.gemini import Gemini
 
-from src.entiy.config import AWS_DOWNLOAD_CRED, DATA_TRANSFORMATION, AWS_MODEL_UPLOAD_CONFIG
+from src.entiy.config import AWS_DOWNLOAD_CRED, DATA_TRANSFORMATION, AWS_MODEL_UPLOAD_CONFIG, GEMINI_ENV_MODEL
 from src.services.aws_model_upload import AWS_MODEL_UPLOAD
 
 
@@ -23,6 +24,7 @@ class TrainingPipeline:
         self.data_transformation = DataTransformation(data_transformation=DATA_TRANSFORMATION(),aws_download_cred=AWS_DOWNLOAD_CRED())
         self.aws_model_upload = AWS_MODEL_UPLOAD(aws_upload_config=AWS_MODEL_UPLOAD_CONFIG())
         self.upload_config = AWS_MODEL_UPLOAD_CONFIG()
+        self.gemini_env_model = Gemini()
 
 
     def download_data(self):
@@ -56,7 +58,12 @@ class TrainingPipeline:
             logging.error(f"Error while uploading the model: {e}")
             raise (f"Error while uploading the model: {e}")
 
-
+    def gemini_env_model_fun(self):
+        try:
+            self.gemini_env_model.initiate_api()
+        except Exception as e:
+            logging.error(f"Error while running the gemini model: {e}")
+            raise (f"Error while running the gemini model: {e}")
 
     def run_pipeline(self):
         try:
@@ -64,6 +71,7 @@ class TrainingPipeline:
             self.ingest_data()
             self.data_transformation_pipeline()
             self.upload_model()
+            #self.gemini_env_model_fun()
         except Exception as e:
             logging.error(f"Error while running the pipeline: {e}")
             raise (f"Error while running the pipeline: {e}")

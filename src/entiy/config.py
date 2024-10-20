@@ -57,3 +57,13 @@ class AWS_MODEL_UPLOAD_CONFIG:
         self.FINAL_FILE_NAME_MODEL = FINAL_FILE_NAME_MODEL
         # Bucket Name
         self.BUCKET_NAME = BUCKET_NAME
+        
+        
+@dataclass
+class GEMINI_ENV_MODEL:
+
+    def __init__(self):
+        # Gemini Credentials
+        self.GEMINI_API_KEY = GEMINI_API_KEY
+        # Gemini Model Name
+        self.GEMINI_MODEL = GEMINI_MODEL

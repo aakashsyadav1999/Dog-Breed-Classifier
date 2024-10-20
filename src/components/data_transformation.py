@@ -49,7 +49,11 @@ class DataTransformation:
         """
         Load the data from the given path
         """
-        with open(os.getcwd() + '\\' + self.aws_download_cred.AWS_DOWNLOAD_DATA_DIR + '\\' + self.aws_download_cred.LABELS_CSV, 'r') as file:
+        
+        file_path = os.path.join(os.getcwd(), self.aws_download_cred.AWS_DOWNLOAD_DATA_DIR, self.aws_download_cred.LABELS_CSV)
+        #with open(os.getcwd() + '\\' + self.aws_download_cred.AWS_DOWNLOAD_DATA_DIR + '\\' + self.aws_download_cred.LABELS_CSV, 'r') as file: #for windows
+        #with open(os.getcwd() + '//' + self.aws_download_cred.AWS_DOWNLOAD_DATA_DIR + '//' + self.aws_download_cred.LABELS_CSV, 'r') as file:  #for linux
+        with open(file_path, 'r') as file:
             logging.info(f"Data loaded successfully")
             data = pd.read_csv(file)
             logging.info(f"Data shape: {data.shape}")

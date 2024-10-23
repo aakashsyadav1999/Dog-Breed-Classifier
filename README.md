@@ -109,6 +109,9 @@ DOG-BREED-CLASSIFIER/
 
 6. **Monitoring**
    - Using ML Flow for saving artifacts and all the metrics log for selecting best model at production grade.
+   ```bash
+   mlflow ui
+   ```
 
 7. **Access Prefect:**
    - Once the containers are up, access Prefect on `http://localhost:8080` to monitor the DAGs.

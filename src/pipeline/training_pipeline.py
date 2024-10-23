@@ -71,7 +71,7 @@ class TrainingPipeline:
             self.ingest_data()
             self.data_transformation_pipeline()
             self.upload_model()
-            #self.gemini_env_model_fun()
+            self.gemini_env_model_fun()
         except Exception as e:
             logging.error(f"Error while running the pipeline: {e}")
             raise (f"Error while running the pipeline: {e}")

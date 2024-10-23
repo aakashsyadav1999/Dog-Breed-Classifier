@@ -33,6 +33,15 @@ from src.entiy.config import DATA_TRANSFORMATION, AWS_DOWNLOAD_CRED
 
 from PIL import Image
 
+import mlflow
+
+# Using a local MLflow tracking server
+#mlflow.login()
+
+# Create a new experiment that the model and the traces will be logged to
+mlflow.set_experiment("dog_breed_classification")
+
+
 TF_ENABLE_ONEDNN_OPTS=0
 
 class DataTransformation:
@@ -276,6 +285,7 @@ class DataTransformation:
                 print("No GPU found, using CPU")
 
             # Train model
+            mlflow.tensorflow.autolog()
             history = model.fit(train_generator,
                                 validation_data=val_generator,
                                 steps_per_epoch=train_generator.samples // self.data_transformation.BATCH_SIZE,

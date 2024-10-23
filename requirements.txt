@@ -9,8 +9,13 @@ jupyterlab==4.2.5
 opencv-python==4.10.0.84
 boto3==1.35.41
 python-dotenv==1.0.1
-mlflow==2.17.0
 prefect==3.0.10
 marvin==2.3.7
 fastapi==0.115.2
 google-generativeai
+openai==1.30.5
+langchain==0.2.1
+langchain-openai==0.1.8
+langchain-community==0.2.1
+mlflow==2.14.0
+tiktoken==0.7.0

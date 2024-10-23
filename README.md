@@ -107,7 +107,10 @@ DOG-BREED-CLASSIFIER/
    docker-compose up --build
    ```
 
-6. **Access Prefect:**
+6. **Monitoring**
+   - Using ML Flow for saving artifacts and all the metrics log for selecting best model at production grade.
+
+7. **Access Prefect:**
    - Once the containers are up, access Prefect on `http://localhost:8080` to monitor the DAGs.
 
 ---
@@ -134,6 +137,9 @@ DOG-BREED-CLASSIFIER/
 3. **Monitor with Prefect:**
    - Check Prefect UI to monitor DAGs and ensure the pipeline is functioning as expected.
 
+4. **Monitor model metric:**
+   - View all the model metric by writing "mlflow ui" in the terminal section which will open a section of mlflow for measuring model performance.
+
 ---
 
 ## Orchestration Process
@@ -152,7 +158,8 @@ DOG-BREED-CLASSIFIER/
 - **Docker**: For containerizing the application  
 - **Prefect**: For orchestration and automation  
 - **GitHub Actions**: For CI/CD workflows  
-- **CNN**: Deep learning model for classification  
+- **CNN**: Deep learning model for classification
+- **ML flow**: For mesauring model accuract and all the metric logs.
 
 ---
 

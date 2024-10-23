@@ -143,6 +143,9 @@ DOG-BREED-CLASSIFIER/
 4. **Monitor model metric:**
    - View all the model metric by writing "mlflow ui" in the terminal section which will open a section of mlflow for measuring model performance.
    ![Dog Breed Classifier](screenshots_mlflow/1.png)
+   ![Dog Breed Classifier](screenshots_mlflow/2.png)
+   ![Dog Breed Classifier](screenshots_mlflow/3.png)
+   ![Dog Breed Classifier](screenshots_mlflow/4.png)
 
 ---
 

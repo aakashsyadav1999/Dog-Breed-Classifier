@@ -19,3 +19,4 @@ langchain-openai==0.1.8
 langchain-community==0.2.1
 mlflow==2.14.0
 tiktoken==0.7.0
+pymssql==2.3.1

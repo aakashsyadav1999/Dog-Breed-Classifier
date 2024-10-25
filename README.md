@@ -77,6 +77,10 @@ DOG-BREED-CLASSIFIER/
    - **GitHub Workflows** are configured to **automatically trigger the DAGs** on certain events (like code pushes or PRs).
    - This ensures the entire pipeline is executed without manual intervention.
 
+### 6. **Saving data into mssql database**
+   - **These all data will be save in the database with binary image path, dog breed prediction and with gemini respose**
+   - This ensure you are saving data, cause we also have to keep our model updated, as in real world we face data shift and photos won't be much clear for predictio, so we need to save image and predicted dog breed. 
+
 ---
 
 ## Setup Instructions
@@ -116,6 +120,9 @@ DOG-BREED-CLASSIFIER/
 7. **Access Prefect:**
    - Once the containers are up, access Prefect on `http://localhost:8080` to monitor the DAGs.
 
+8. **MSSQL Database Setup**
+   - ![Dog Breed Classifier](screenshot_mssql/Screenshot%202024-10-25%20195254.png)
+
 ---
 
 ## How to Use
@@ -147,6 +154,9 @@ DOG-BREED-CLASSIFIER/
    ![Dog Breed Classifier](screenshots_mlflow/3.png)
    ![Dog Breed Classifier](screenshots_mlflow/4.png)
 
+5. **MSSQL for response storage**
+   - Created mssql ingestion code for inserting response from user into localdatabase, you can also save these reponse into azure cloud database (Paid Version).
+
 ---
 
 ## Orchestration Process
@@ -167,6 +177,8 @@ DOG-BREED-CLASSIFIER/
 - **GitHub Actions**: For CI/CD workflows  
 - **CNN**: Deep learning model for classification
 - **ML flow**: For mesauring model accuract and all the metric logs.
+- **MSSQL**: For saving responses into database for model fine tunning.
+
 
 ---
 

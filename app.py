@@ -6,6 +6,7 @@ import os
 import pandas as pd
 from werkzeug.utils import secure_filename
 from src.components.gemini import Gemini
+from src.utils.common import Mysql
 app = Flask(__name__)
 
 # Constants
@@ -29,6 +30,8 @@ if not os.path.exists(labels_path):
 model = load_model(model_path)
 labels_df = pd.read_csv(labels_path)
 dog_breeds = labels_df['breed'].tolist()
+gemini = Gemini()
+mysql = Mysql()
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -69,14 +72,18 @@ def predict():
         
         predicted_breed = dog_breeds[np.argmax(predictions)]
         
-        gemini = Gemini()
+        # Send the predicted breed to Gemini
         gemini.gemini_api()
         gemini_response = gemini.send_to_gemini(predicted_breed)
         
         # Extract the text from the Gemini response
         gemini_response_text = gemini_response.text if hasattr(gemini_response, 'text') else 'No response text available'
         
+        # Insert image and prediction into the database
+        mysql.insert ((file_path, predicted_breed,gemini_response_text))
+        
         return jsonify({'breed': predicted_breed, 'gemini_response': gemini_response_text})
+
     
     return jsonify({'error': 'Invalid file format. Only .jpg and .jpeg files are allowed.'}), 400
 

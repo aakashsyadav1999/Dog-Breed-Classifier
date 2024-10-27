@@ -34,7 +34,7 @@ DOG-BREED-CLASSIFIER/
 ├── uploads/               # Uploaded files (images for predictions)
 ├── venv/                  # Virtual environment
 │
-├── .dvc_pipeline          # tracking dvc pipeline
+├── .dvc_pipeline          # Tracking dvc pipeline
 ├── .dockerignore          # Docker ignore file
 ├── .env                   # Environment variables
 ├── .gitignore             # Git ignore file

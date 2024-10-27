@@ -22,6 +22,7 @@ This project is a **deep learning-based classifier** to predict the breed of a d
 ```plaintext
 DOG-BREED-CLASSIFIER/
 │
+├── dvc/                   # Tracking Data.
 ├── dags/                  # Prefect DAGs to automate processes
 ├── data/                  # Directory for data (downloaded & extracted)
 ├── logs/                  # Logs generated during runs
@@ -33,6 +34,7 @@ DOG-BREED-CLASSIFIER/
 ├── uploads/               # Uploaded files (images for predictions)
 ├── venv/                  # Virtual environment
 │
+├── .dvc_pipeline          # tracking dvc pipeline
 ├── .dockerignore          # Docker ignore file
 ├── .env                   # Environment variables
 ├── .gitignore             # Git ignore file

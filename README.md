@@ -129,6 +129,25 @@ DOG-BREED-CLASSIFIER/
 8. **MSSQL Database Setup**
    - ![Dog Breed Classifier](screenshot_mssql/Screenshot%202024-10-25%20195254.png)
 
+9. **DVC Setup**
+   - How to setup dvc 
+   ```bash
+   dvc init
+   ```
+   ```bash
+   dvc remote add -d myremote s3://mystore/path
+   ```
+   ```bash
+   export AWS_ACCESS_KEY_ID='myid'
+   export AWS_SECRET_ACCESS_KEY='mysecret'
+   ```
+   ```bash
+   dvc push
+   ```
+   ```bash
+   https://dvc.org/doc/user-guide/data-management/remote-storage/amazon-s3
+   ```
+
 ---
 
 ## How to Use

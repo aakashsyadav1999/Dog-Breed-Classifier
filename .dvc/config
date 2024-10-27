@@ -1,0 +1,5 @@
+[core]
+    autostage = true
+    remote = url
+['remote "url"']
+    url = s3://dog-breed-dataset/model_versioning/

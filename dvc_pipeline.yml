@@ -1,0 +1,8 @@
+stages:
+  stages:
+    extract_data:
+      cmd: unzip data/data.zip -d data/
+      deps:
+        - data/data.zip
+      outs:
+        - data

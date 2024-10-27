@@ -79,7 +79,11 @@ DOG-BREED-CLASSIFIER/
 
 ### 6. **Saving data into mssql database**
    - **These all data will be save in the database with binary image path, dog breed prediction and with gemini respose**
-   - This ensure you are saving data, cause we also have to keep our model updated, as in real world we face data shift and photos won't be much clear for predictio, so we need to save image and predicted dog breed. 
+   - This ensure you are saving data, cause we also have to keep our model updated, as in real world we face data shift and photos won't be much clear for predictio, so we need to save image and predicted dog breed.
+
+### 7. **Versioning of data.zip**
+   - **We need to keep track of data version as we are training data on the specific data or data which is been uploaded by user which is store in our database**
+   - Version of data is very critical cause if our model do not gives us good prediction and if we need to track from which data it is been train, DVC will help us to track us the root cause.
 
 ---
 
@@ -178,6 +182,7 @@ DOG-BREED-CLASSIFIER/
 - **CNN**: Deep learning model for classification
 - **ML flow**: For mesauring model accuract and all the metric logs.
 - **MSSQL**: For saving responses into database for model fine tunning.
+- **DVC**: Open-source version control system for Data Science and Machine Learning projects. Git-like experience to organize your data, models, and experiments
 
 
 ---
